@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Movie Registration";
+}
+
+@model Movie
+@Html.ValidationSummary()
+<form action="../Home/Display" method="post">
+    <h2>ID</h2>
+    <input type="number" name="Id" required title="Please input a number"/>
+
+    <h2>Title</h2>
+    <input type="text" name="Title" pattern=".{1,50}[a-zA-Z0-9 ]+" required title="1-50 characters"/>
+    
+
+    <h2>Genre</h2>
+
+    <select name="Genre">
+        <option value="action">Action</option>
+        <option value="drama">Drama</option>
+        <option value="sff">Sci-Fi/Fantasy</option>
+        <option value="comedy">comedy</option>
+    </select>
+
+    <h2>Year</h2>
+    <input min="1880" max="@DateTime.Today.Year" type="number" name="Year" required/>
+
+    <h2>Actors</h2>
+    <input type="text" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title ="Either 0 or 2-50 characters" list="actors" name="Actors" />
+    <br />
+    <input type="text" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title="Either 0 or 2-50 characters" list="actors" name="Actors" />
+    <br />
+    <input type="text" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title="Either 0 or 2-50 characters" list="actors" name="Actors" />
+
+    <h2>Directors</h2>
+    <input type="text" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title="Either 0 or 2-50 characters" list="directors" name="Directors" />
+    <br />
+    <input type="text" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title="Either 0 or 2-50 characters" list="directors" name="Directors" />
+    <br />
+    <input type="text" pattern=".{0}[a-zA-Z0-9 ]+|.{2,50}[a-zA-Z0-9 ]+" title="Either 0 or 2-50 characters" list="directors" name="Directors" />
+    <br />
+    <input type="submit" />
+</form>

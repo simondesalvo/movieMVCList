@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Movie Registration Display";
+}
+
+@model List<Movie>
+@using Microsoft.AspNetCore.Http
+@using System.Text.Json;
+
+@{List<Movie> movieList = new List<Movie>(); }
+@{string movieListJSON = Context.Session.GetString("MovieListSession");
+    if (movieListJSON != "EmptySession")
+    {
+        movieList = JsonSerializer.Deserialize<List<Movie>>(movieListJSON);
+    }
+}
+@foreach (var movies in movieList)
+{
+    @movies.Title;
+    <br />
+}
+<a href="Registration" class="btn btn-success">Add More Movies to a List</a>
+<a href="EndSession" class="btn btn-danger">Remove Movie List</a>
